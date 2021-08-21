@@ -90,4 +90,42 @@ public class Brick {
 		
 		return collided;
 	}
+	
+	public boolean checkCollisionBrick(int x, int y)
+	{
+		boolean collided = false;
+		for(int i=0; i< brickON.length;i++)
+		{
+			if(brickON[i]==1)
+			{
+				if(new Rectangle(x, y, 50, 50).intersects(new Rectangle(bricksXPos[i], bricksYPos[i], 50, 50)))
+				{
+					
+					collided = true;
+					return collided;
+				}
+			}
+		}
+	collided = checkCollisionSolidBrick(x, y);
+		
+		
+		return collided;
+	}
+	
+	public boolean checkCollisionSolidBrick(int x, int y)
+	{
+		boolean collided = false;
+		for(int i=0; i< solidBricksXPos.length;i++)
+		{		
+			if(new Rectangle(x, y, 50, 50).intersects(new Rectangle(solidBricksXPos[i], solidBricksYPos[i], 50, 50)))
+			{		
+				collided = true;
+				break;
+			}			
+		}
+		
+		return collided;
+	}
+	
+	
 }

@@ -438,10 +438,11 @@ public class Gameplay extends JPanel implements ActionListener {
 					player1down = false;
 					player1up = true;
 
-					if (!(player1Y < 10)) {
-						player1Y -= 20;
-						moveP1();
+					if (!br.checkCollisionBrick(player1X, player1Y-10)&&!(player1Y < 10)) {
+						player1Y -= 10;
+						
 					}
+					moveP1();
 				}
 				if (e.getKeyCode() == KeyEvent.VK_A) {
 					player1right = false;
@@ -449,10 +450,11 @@ public class Gameplay extends JPanel implements ActionListener {
 					player1down = false;
 					player1up = false;
 
-					if (!(player1X < 10)) {
-						player1X -= 20;
-						moveP1();
+					if (!br.checkCollisionBrick(player1X-10, player1Y)&&!(player1X < 10)) {
+						player1X -= 10;
+						
 					}
+					moveP1();
 				}
 				if (e.getKeyCode() == KeyEvent.VK_S) {
 					player1right = false;
@@ -460,21 +462,24 @@ public class Gameplay extends JPanel implements ActionListener {
 					player1down = true;
 					player1up = false;
 
-					if (!(player1Y > 540)) {
-						player1Y += 20;
-						moveP1();
+					if (!br.checkCollisionBrick(player1X, player1Y+10)&&!(player1Y > 540)) {
+						player1Y += 10;
+					
 					}
+					moveP1();
 				}
+				
 				if (e.getKeyCode() == KeyEvent.VK_D) {
 					player1right = true;
 					player1left = false;
 					player1down = false;
 					player1up = false;
 
-					if (!(player1X > 590)) {
-						player1X += 20;
-						moveP1();
+					if (!br.checkCollisionBrick(player1X+10, player1Y)&&!(player1X > 590)) {
+						player1X += 10;
+						
 					}
+					moveP1();
 				}
 			}
 		}
@@ -539,12 +544,12 @@ public class Gameplay extends JPanel implements ActionListener {
 					player2down = false;
 					player2up = true;
 
-					if (!(player2Y < 10)) {
-						player2Y -= 20;
-						moveP2();
+					if (!br.checkCollisionBrick(player2X, player2Y-10)&&!(player2Y < 10)) {
+						player2Y -= 10;
+						
 					
 					}
-
+					moveP2();
 				}
 				if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 					player2right = false;
@@ -552,11 +557,12 @@ public class Gameplay extends JPanel implements ActionListener {
 					player2down = false;
 					player2up = false;
 
-					if (!(player2X < 10)) {
-						player2X -= 20;
-						moveP2();
+					if (!br.checkCollisionBrick(player2X-10, player2Y)&&!(player2X < 10)) {
+						player2X -= 10;
+						
 					
 					}
+					moveP2();
 				}
 				if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 					player2right = false;
@@ -564,11 +570,12 @@ public class Gameplay extends JPanel implements ActionListener {
 					player2down = true;
 					player2up = false;
 
-					if (!(player2Y > 540)) {
-						player2Y += 20;
-						moveP2();
+					if (!br.checkCollisionBrick(player2X, player2Y+10)&&!(player2Y > 540)) {
+						player2Y += 10;
+						
 					
 					}
+					moveP2();
 				}
 				if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 					player2right = true;
@@ -576,11 +583,12 @@ public class Gameplay extends JPanel implements ActionListener {
 					player2down = false;
 					player2up = false;
 
-					if (!(player2X > 590)) {
-						player2X += 20;
-						moveP2();
+					if (!br.checkCollisionBrick(player2X+10, player2Y)&&!(player2X > 590)) {
+						player2X += 10;
+						
 					
 					}
+					moveP2();
 				}
 
 			}
