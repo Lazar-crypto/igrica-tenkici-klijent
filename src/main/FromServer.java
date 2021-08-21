@@ -88,7 +88,7 @@ public class FromServer extends Thread {
 					if(dataArr[0].contains("1")) { //provera da li je u pitanju igrac 1
 					
 						//PRIJEM KORDINATA METKA
-						if(dataArr[1].contains("bullet")) {
+						if(dataArr[1].contains("true")) {
 							System.out.println("pomeranje bulleta 1");
 							System.out.println();
 							
@@ -113,7 +113,10 @@ public class FromServer extends Thread {
 							if(dataArr[5].contains("1")) {
 								Gameplay.setDirectionP1(false, false, true, false);
 							}
-							if(dataArr[6].contains("1")) {
+							
+						
+							
+							if(dataArr[6].charAt(0) == '1') {
 								Gameplay.setDirectionP1(false, false, false, true);
 							}
 						}
@@ -123,7 +126,7 @@ public class FromServer extends Thread {
 					//igrac 2
 					else {
 					
-						if(dataArr[1].contains("bullet")) {
+						if(dataArr[1].contains("true")) {
 							System.out.println("pomeranje bulleta 2");
 							System.out.println();
 						
@@ -143,7 +146,7 @@ public class FromServer extends Thread {
 							if(dataArr[5].contains("1")) {
 								Gameplay.setDirectionP2(false, false, true, false);
 							}
-							if(dataArr[6].contains("1")) {
+							if(dataArr[6].charAt(0) == '1') {
 								Gameplay.setDirectionP2(false, false, false, true);
 							}
 						}

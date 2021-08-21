@@ -35,7 +35,11 @@ public class ToServer {
 		
 	}
 	
+	//greskom se poziva ovaj metod pa se salju i kordinate tenka, a to ne bi trebalo
+	//treba promeniti ime metoda
 	public void send(String playerXY) {
+		
+		System.out.println(playerXY);
 		
 		byte[] sendData = playerXY.getBytes();
 		//System.out.println(playerXY);
@@ -49,6 +53,8 @@ public class ToServer {
 	}
 	
 	public void sendBullet(boolean bullet) {
+		
+		
 		
 		String temp = Boolean.toString(bullet);
 		byte[] sendData = temp.getBytes();
