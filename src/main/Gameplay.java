@@ -56,7 +56,7 @@ public class Gameplay extends JPanel implements ActionListener {
 	private boolean play = true;
 	
 	int portNumber = 12000;
-	String adress = "localhost";
+	String adress = "192.168.0.17";
 	//Socket socketForServerCommunication;
 	BufferedReader inputFromServer;
 	PrintStream outputToServer;
@@ -253,6 +253,10 @@ public class Gameplay extends JPanel implements ActionListener {
 					player1Bullet = null;
 					player1Shoot = false;
 					bulletShootDir1 = "";
+					
+					if(player2lives==0) {
+						toServer.sendBullet(player1Shoot);
+					}
 				}
 
 				if (player1Bullet != null && ( br.checkCollision(player1Bullet.getX(), player1Bullet.getY())
@@ -293,6 +297,10 @@ public class Gameplay extends JPanel implements ActionListener {
 					player2Bullet = null;
 					player2Shoot = false;
 					bulletShootDir2 = "";
+					
+					if(player1lives==0) {
+						toServer.sendBullet(player2Shoot);
+					}
 				}
 
 				if (player2Bullet != null && ( br.checkCollision(player2Bullet.getX(), player2Bullet.getY())
@@ -551,6 +559,7 @@ public class Gameplay extends JPanel implements ActionListener {
 					}
 					moveP2();
 				}
+			
 				if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 					player2right = false;
 					player2left = true;
