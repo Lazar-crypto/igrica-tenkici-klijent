@@ -25,19 +25,19 @@ public class Player1Bullet {
 	public void move(String face)
 	{
 		if(face.equals("right")) {
-			x += 20;
+			x += 10;
 		}
 			
 		else if(face.equals("left")) {
-			x -= 20;
+			x -= 10;
 		}
 			
 		else if(face.equals("up")) {
-			y -= 20;
+			y -= 10;
 		}
 			
 		else {
-			y +=20;
+			y +=10;
 		}
 			
 	}
