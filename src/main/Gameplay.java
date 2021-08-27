@@ -251,12 +251,13 @@ public class Gameplay extends JPanel implements ActionListener {
 					player1score += 10;
 					player2lives -= 1;
 					player1Bullet = null;
-					player1Shoot = false;
 					bulletShootDir1 = "";
 					
 					if(player2lives==0) {
 						toServer.sendBullet(player1Shoot);
 					}
+				
+					player1Shoot = false;
 				}
 
 				if (player1Bullet != null && ( br.checkCollision(player1Bullet.getX(), player1Bullet.getY())
@@ -295,12 +296,13 @@ public class Gameplay extends JPanel implements ActionListener {
 					player2score += 10;
 					player1lives -= 1;
 					player2Bullet = null;
-					player2Shoot = false;
 					bulletShootDir2 = "";
 					
 					if(player1lives==0) {
 						toServer.sendBullet(player2Shoot);
 					}
+				
+					player2Shoot = false;
 				}
 
 				if (player2Bullet != null && ( br.checkCollision(player2Bullet.getX(), player2Bullet.getY())
