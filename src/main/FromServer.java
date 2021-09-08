@@ -95,6 +95,16 @@ public class FromServer extends Thread {
 							Gameplay.handleBullet1();
 						}
 						
+						else if(dataArr[1].contains("score")) {
+							String scoreArr[] = dataArr[1].split(":");
+							int score1 = Integer.parseInt(scoreArr[1]);
+							int score2 = Integer.parseInt(scoreArr[2]);
+							
+							
+							Gameplay.setPlayer1score(score1);
+							Gameplay.setPlayer2score(score2);
+						}
+						
 						//PRIJEM KORDINATA IGRACA
 						else {
 							System.out.println("Pomeranje igraca 1");
@@ -131,6 +141,16 @@ public class FromServer extends Thread {
 							System.out.println();
 						
 							Gameplay.handleBullet2();
+						}
+						
+						else if(dataArr[1].contains("score")) {
+							String scoreArr[] = dataArr[1].split(":");
+							int score1 = Integer.parseInt(scoreArr[1]);
+							int score2 = Integer.parseInt(scoreArr[2]);
+							
+							
+							Gameplay.setPlayer1score(score1);
+							Gameplay.setPlayer2score(score2);
 						}
 						else {
 							int x = Integer.parseInt(dataArr[1]);

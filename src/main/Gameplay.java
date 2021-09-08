@@ -27,7 +27,9 @@ public class Gameplay extends JPanel implements ActionListener {
 	private static boolean player1left = false;
 	private static boolean player1down = false;
 	private static boolean player1up = true;
-	private int player1score = 0;
+	private static int player1score = 0;
+
+
 	private int player1lives = 5;
 	private static boolean player1Shoot = false;
 	private String bulletShootDir1 = "";
@@ -39,7 +41,7 @@ public class Gameplay extends JPanel implements ActionListener {
 	private static boolean player2left = false;
 	private static boolean player2down = false;
 	private static boolean player2up = true;
-	private int player2score = 0;
+	private static int player2score = 0;
 	private int player2lives = 5;
 	private static boolean player2Shoot = false;
 	private String bulletShootDir2 = "";
@@ -56,7 +58,7 @@ public class Gameplay extends JPanel implements ActionListener {
 	private boolean play = true;
 	
 	int portNumber = 12000;
-	String adress = "192.168.0.17";
+	String adress = "localhost";
 	//Socket socketForServerCommunication;
 	BufferedReader inputFromServer;
 	PrintStream outputToServer;
@@ -92,7 +94,21 @@ public class Gameplay extends JPanel implements ActionListener {
 
 	}
 
+	
 
+	public static void setPlayer1score(int player1score) {
+		Gameplay.player1score = player1score;
+	}
+
+
+	
+
+
+	public static void setPlayer2score(int player2score) {
+		Gameplay.player2score = player2score;
+	}
+	
+	
 	static public synchronized void setStatusP1(boolean statusPlayer1) {
 
 		statusP1 = statusPlayer1 ;
@@ -249,7 +265,9 @@ public class Gameplay extends JPanel implements ActionListener {
 				if (new Rectangle(player1Bullet.getX(), player1Bullet.getY(), 10, 10)
 						.intersects(new Rectangle(player2X, player2Y, 50, 50))) {
 					player1score += 10;
-					player2lives -= 1;
+					String message = "score:"+player1score+":"+player2score+":";
+					toServer.send(message);
+					//player2lives -= 1;
 					player1Bullet = null;
 					bulletShootDir1 = "";
 					
@@ -294,7 +312,9 @@ public class Gameplay extends JPanel implements ActionListener {
 				if (new Rectangle(player2Bullet.getX(), player2Bullet.getY(), 10, 10)
 						.intersects(new Rectangle(player1X, player1Y, 50, 50))) {
 					player2score += 10;
-					player1lives -= 1;
+					String message = "score:"+player1score+":"+player2score+":";
+					toServer.send(message);
+					//player1lives -= 1;
 					player2Bullet = null;
 					bulletShootDir2 = "";
 					
