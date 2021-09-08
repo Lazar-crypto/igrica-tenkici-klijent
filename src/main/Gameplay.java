@@ -264,7 +264,10 @@ public class Gameplay extends JPanel implements ActionListener {
 
 				if (new Rectangle(player1Bullet.getX(), player1Bullet.getY(), 10, 10)
 						.intersects(new Rectangle(player2X, player2Y, 50, 50))) {
+					if(statusP1) {
+					
 					player1score += 10;
+					
 					String message = "score:"+player1score+":"+player2score+":";
 					toServer.send(message);
 					//player2lives -= 1;
@@ -276,6 +279,7 @@ public class Gameplay extends JPanel implements ActionListener {
 					}
 				
 					player1Shoot = false;
+					}
 				}
 
 				if (player1Bullet != null && ( br.checkCollision(player1Bullet.getX(), player1Bullet.getY())
@@ -311,6 +315,8 @@ public class Gameplay extends JPanel implements ActionListener {
 
 				if (new Rectangle(player2Bullet.getX(), player2Bullet.getY(), 10, 10)
 						.intersects(new Rectangle(player1X, player1Y, 50, 50))) {
+					if(statusP2) {
+					
 					player2score += 10;
 					String message = "score:"+player1score+":"+player2score+":";
 					toServer.send(message);
@@ -323,6 +329,7 @@ public class Gameplay extends JPanel implements ActionListener {
 					}
 				
 					player2Shoot = false;
+					}
 				}
 
 				if (player2Bullet != null && ( br.checkCollision(player2Bullet.getX(), player2Bullet.getY())
