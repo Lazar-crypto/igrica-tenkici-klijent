@@ -221,7 +221,7 @@ public class Gameplay extends JPanel implements ActionListener {
 		br.draw(this, g);
 
 		if (play) {
-			// draw player 1
+			// crtanje igraca 1
 			if (player1up)
 				player1 = new ImageIcon("player1_tank_up.png");
 			else if (player1down)
@@ -233,7 +233,7 @@ public class Gameplay extends JPanel implements ActionListener {
 
 			player1.paintIcon(this, g, player1X, player1Y);
 
-			// draw player 2
+			// crtanje igraca 2
 			if (player2up)
 				player2 = new ImageIcon("player2_tank_up.png");
 			else if (player2down)
@@ -245,7 +245,7 @@ public class Gameplay extends JPanel implements ActionListener {
 
 			player2.paintIcon(this, g, player2X, player2Y);
 			
-			//draw bullets
+			//crtanje metaka
 			if (player1Bullet != null && player1Shoot) {
 				if (bulletShootDir1.equals("")) {
 					if (player1up) {
@@ -278,8 +278,9 @@ public class Gameplay extends JPanel implements ActionListener {
 						toServer.sendBullet(player1Shoot);
 					}
 				
-					player1Shoot = false;
+					
 					}
+					player1Shoot = false;
 				}
 
 				if (player1Bullet != null && ( br.checkCollision(player1Bullet.getX(), player1Bullet.getY())
@@ -328,8 +329,9 @@ public class Gameplay extends JPanel implements ActionListener {
 						toServer.sendBullet(player2Shoot);
 					}
 				
-					player2Shoot = false;
+					
 					}
+					player2Shoot = false;
 				}
 
 				if (player2Bullet != null && ( br.checkCollision(player2Bullet.getX(), player2Bullet.getY())
@@ -356,9 +358,9 @@ public class Gameplay extends JPanel implements ActionListener {
 		g.drawString("Player 1:  " + player1score, 670, 60);
 		g.drawString("Player 2:  " + player2score, 670, 90);
 
-		g.drawString("Lives", 700, 150);
-		g.drawString("Player 1:  " + player1lives, 670, 180);
-		g.drawString("Player 2:  " + player2lives, 670, 210);
+		//g.drawString("Lives", 700, 150);
+		//g.drawString("Player 1:  " + player1lives, 670, 180);
+		//g.drawString("Player 2:  " + player2lives, 670, 210);
 
 		if (player1lives == 0) {
 			g.setColor(Color.white);

@@ -21,7 +21,7 @@ public class Main {
 		Gameplay gamePlay = new Gameplay();
 		
 		obj.setBounds(10, 10, 800, 630);
-		obj.setTitle("Tank 2D");	
+		obj.setTitle("Tenkici");	
 		obj.setBackground(Color.gray);
 		obj.setResizable(false);
 		
